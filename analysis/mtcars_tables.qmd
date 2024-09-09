@@ -1,0 +1,51 @@
+---
+title: "mtcars tables"
+editor_options: 
+  chunk_output_type: console
+---
+
+
+```{r}
+library(tidyverse)
+library(gt)
+library(knitr)
+```
+
+## Head of mtcars
+
+```{r}
+#| label: tbl-mtcars-head
+
+mtcars |> 
+  rownames_to_column(var = "car model") |>
+  head() |>
+  kable()
+
+```
+
+## Tail of mtcars
+
+```{r}
+#| label: tbl-mtcars-tail
+
+mtcars |> 
+  rownames_to_column(var = "car model") |>
+  tail() |>
+  gt()
+
+```
+
+## Summary of mtcars
+
+```{r}
+#| label: tbl-mtcars-summary
+
+mtcars |> 
+  group_by(cyl) |>
+  summarise(across(1:6, mean)) |>
+  gt() |> 
+  fmt_number(columns = 2:7, decimals = 1)
+
+```
+
+

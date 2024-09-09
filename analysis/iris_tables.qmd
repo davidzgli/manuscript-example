@@ -1,0 +1,49 @@
+---
+title: "iris tables"
+editor_options: 
+  chunk_output_type: console
+---
+
+
+```{r}
+library(tidyverse)
+library(gt)
+library(knitr)
+```
+
+## Head of iris
+
+```{r}
+#| label: supptbl-iris-head
+
+iris |> 
+  head() |>
+  kable()
+
+```
+
+## Tail of iris
+
+```{r}
+#| label: supptbl-iris-tail
+
+iris |> 
+  tail() |>
+  gt()
+
+```
+
+## Summary of iris
+
+```{r}
+#| label: supptbl-iris-summary
+
+iris |> 
+  group_by(Species) |>
+  summarise(across(everything(), mean)) |>
+  gt() |> 
+  fmt_number(columns = everything(), decimals = 1)
+
+```
+
+

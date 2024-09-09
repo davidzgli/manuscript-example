@@ -1,0 +1,44 @@
+project:
+  type: manuscript
+
+manuscript:
+  article: index.qmd
+  # article: long_ms.qmd
+
+code-fold: true
+code-link: true
+
+format:
+  html:
+    comments:
+      hypothesis: true
+  docx: default
+  jats: default
+  typst:
+    toc: true
+    section-numbering: 1.1.a
+    columns: 1
+
+  # (other formats)
+  # pdf: default
+
+execute:
+  # freeze: true
+  freeze: auto
+
+crossref:
+  fig-prefix: "Fig. " 
+  custom:
+    - kind: float
+      key: suppfig
+      latex-env: suppfig
+      reference-prefix: "Supplementary Fig. "
+      space-before-numbering: false
+      latex-list-of-description: Supplementary Figure
+    - kind: float
+      key: supptbl
+      latex-env: supptbl
+      reference-prefix: "Supplementary Table"
+      space-before-numbering: true
+      latex-list-of-description: Supplementary Table
+

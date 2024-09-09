@@ -1,0 +1,17 @@
+{
+  "hash": "9abba4b422bb707a164dce22ade4fe04",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"mtcars figures\"\neditor_options: \n  chunk_output_type: console\n---\n\n::: {.cell layout-align=\"center\"}\n\n```{.r .cell-code .hidden}\nlibrary(tidyverse)\nlibrary(patchwork)\n```\n:::\n\n\n\n## Scatter plot\n\n\n\n\n::: {#cell-fig-mtcars-scatter .cell layout-align=\"center\"}\n\n```{.r .cell-code .hidden}\n#| label: fig-mtcars-scatter\n\nggplot(mtcars) + \n  geom_point(aes(mpg, disp)) \n```\n\n::: {.cell-output-display}\n![](mtcars_plots_files/figure-ipynb/fig-mtcars-scatter-1.png){#fig-mtcars-scatter fig-align='center'}\n:::\n:::\n\n\n\n## Boxplot\n\n\n\n::: {#cell-fig-mtcars-boxplot .cell layout-align=\"center\"}\n\n```{.r .cell-code .hidden}\n#| label: fig-mtcars-boxplot\n\nggplot(mtcars) + \n  geom_boxplot(aes(gear, disp, group = gear))\n```\n\n::: {.cell-output-display}\n![](mtcars_plots_files/figure-ipynb/fig-mtcars-boxplot-1.png){#fig-mtcars-boxplot fig-align='center'}\n:::\n:::\n\n\n\n## Scatter plot with color\n\n\n\n::: {#cell-fig-mtcars-scatter-color .cell layout-align=\"center\"}\n\n```{.r .cell-code .hidden}\n#| label: fig-mtcars-scatter-color\n\nscatter_color <-\nggplot(mtcars) + \n  geom_point(aes(hp, wt, colour = mpg)) + \n  theme(legend.position = 'bottom')\n  # ggtitle('Plot 3')\n\nscatter_color\n```\n\n::: {.cell-output-display}\n![](mtcars_plots_files/figure-ipynb/fig-mtcars-scatter-color-1.png){#fig-mtcars-scatter-color fig-align='center'}\n:::\n:::\n\n\n\n## Bar plot\n\n\n\n::: {#cell-fig-mtcars-barplot .cell layout-align=\"center\"}\n\n```{.r .cell-code .hidden}\n#| label: fig-mtcars-barplot\n\nbar_plot <- \nggplot(mtcars) + \n  geom_bar(aes(gear)) + \n  facet_wrap(~cyl) + \n  theme(legend.position = 'bottom')\n  # ggtitle('Plot 4')\n\nbar_plot\n```\n\n::: {.cell-output-display}\n![](mtcars_plots_files/figure-ipynb/fig-mtcars-barplot-1.png){#fig-mtcars-barplot fig-align='center'}\n:::\n:::\n\n\n\n## Combine the plots\n\n\n\n::: {#cell-fig-mtcars-combined .cell layout-align=\"center\"}\n\n```{.r .cell-code .hidden}\n#| label: fig-mtcars-combined\n\nscatter_color + bar_plot + plot_layout(ncol = 2) + plot_annotation(title = 'Combined plots', tag_levels = 'A')\n```\n\n::: {.cell-output-display}\n![](mtcars_plots_files/figure-ipynb/fig-mtcars-combined-1.png){#fig-mtcars-combined fig-align='center'}\n:::\n:::\n",
+    "supporting": [
+      "mtcars_plots_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": null,
+    "postProcess": true
+  }
+}

@@ -1,0 +1,109 @@
+---
+title: "manuscript example"
+author:
+  - name: Steve Purves
+    orcid: 0000-0002-0760-5497
+    corresponding: true
+    email: steve@curvenote.com
+    roles:
+      - Investigation
+      - Project administration
+      - Software
+      - Visualization
+    affiliations:
+      - Curvenote
+  - name: Rowan Cockett
+    orcid: 0000-0002-7859-8394
+    corresponding: false
+    roles: []
+    affiliations:
+      - Curvenote
+keywords:
+  - La Palma
+  - Earthquakes
+abstract: |
+  Using some common datasets, we demonstrate the use of Quarto to create a manuscript with multiple sections and figures. The manuscript includes an overview of the `mtcars` dataset, plots of the `mtcars` dataset, an overview of the `iris` dataset, and plots of the `iris` dataset.
+  
+plain-language-summary: |
+  Long manuscript with figures, supplementary figures, tables, and supplementary tables ...
+key-points:
+  - Long manuscript includes many sections and figures.
+  - The analyses are arranged into different folders for clarity.
+date: last-modified
+bibliography: references.bib
+citation:
+  container-title: Earth and Space Science
+number-sections: true
+---
+
+
+## Introduction
+
+Here we are going to write a long manuscript with many sections and figures. The analyses are arranged into different folders for clarity. 
+
+{{< lipsum 1 >}}
+
+## Methods
+
+{{< lipsum 1 >}}
+
+## Results
+
+### mtcars overview
+
+{{< embed analysis/mtcars_tables.qmd#tbl-mtcars-head >}}
+
+@tbl-mtcars-head shows the first few rows of the `mtcars` dataset. The dataset contains 32 observations and 11 variables. The variables are `mpg`, `cyl`, `disp`, `hp`, `drat`, `wt`, `qsec`, `vs`, `am`, `gear`, and `carb`.
+
+{{< embed analysis/mtcars_tables.qmd#tbl-mtcars-summary >}}
+
+@tbl-mtcars-summary shows the means of the `mtcars` dataset. Only the first 6 variables are shown. 
+
+### mtcars plots
+
+{{< embed analysis/mtcars_plots.qmd#fig-mtcars-boxplot >}}
+{{< embed analysis/mtcars_plots.qmd#fig-mtcars-scatter >}}
+
+@fig-mtcars-boxplot shows the boxplot of disp in the `mtcars` dataset for different gears. [Fig @fig-mtcars-scatter] shows the scatter plot between mpg and disp in the `mtcars` dataset.
+
+
+{{< embed analysis/mtcars_plots.qmd#fig-mtcars-combined >}}
+
+@fig-mtcars-combined shows the combined plot of a colored scatter and a bar plot for the `mtcars` dataset. [@fig-mtcars-combined] A indicates weight has positive correlation with hp, with higher weights having larger horsepower, accompanied by lower mpg. We can see that four forward gears are most popular for cars with 4 or 6 cylinders, while 3 gears are most popular for cars with 8 cylinders ([@fig-mtcars-combined] B). 
+
+
+### Iris overview
+
+{{< embed analysis/iris_tables.qmd#supptbl-iris-head >}}
+
+@supptbl-iris-head shows the first few rows of the `iris` dataset. The dataset contains 150 observations and 5 variables. The variables are `Sepal.Length`, `Sepal.Width`, `Petal.Length`, `Petal.Width`, and `Species`.
+
+{{< embed analysis/iris_tables.qmd#supptbl-iris-summary >}}
+
+@supptbl-iris-summary shows the means of the `iris` dataset.
+
+
+### Iris plots
+
+{{< embed analysis/iris_plots.qmd#suppfig-iris-scatter-sepal >}}
+{{< embed analysis/iris_plots.qmd#suppfig-iris-scatter-petal >}}
+
+@suppfig-iris-scatter-sepal shows the scatter plot of sepal length and sepal width for the iris dataset. [@suppfig-iris-scatter-petal] shows the scatter plot of petal length and petal width for the iris dataset.
+
+{{< embed analysis/iris_plots.qmd#suppfig-iris-boxplot-combined >}}
+
+@suppfig-iris-boxplot-combined shows the combined boxplot of sepal and petal length for the iris dataset. The sepal length is larger for the virginica species compared to the other two species ([@suppfig-iris-boxplot-combined] A). Similarly, the petal length is larger for the virginica species compared to the other two species ([@suppfig-iris-boxplot-combined] B).
+
+
+## Discussion
+
+{{< lipsum 1 >}}
+
+## Conclusion
+
+{{< lipsum 1 >}}
+
+## References
+
+
+

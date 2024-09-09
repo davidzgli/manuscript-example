@@ -1,0 +1,17 @@
+{
+  "hash": "e4261bd40997ce0ebb96b23bca99d8b8",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"iris figures\"\neditor_options: \n  chunk_output_type: console\n---\n\n::: {.cell layout-align=\"center\"}\n\n```{.r .cell-code .hidden}\nlibrary(tidyverse)\nlibrary(patchwork)\n```\n:::\n\n\n\n## Scatterplot for Sepal \n\nCompare Sepal.Length and Sepal.Width\n\n\n\n::: {.cell layout-align=\"center\"}\n\n```{.r .cell-code .hidden}\n#| label: suppfig-iris-scatter-sepal\n\niris %>% \n  ggplot(aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +\n  geom_point() +\n  labs(title = \"Sepal Length vs Sepal Width\",\n       x = \"Sepal Length\",\n       y = \"Sepal Width\")\n```\n\n::: {.cell-output-display}\n![](iris_plots_files/figure-ipynb/suppfig-iris-scatter-sepal-1.png){fig-align='center'}\n:::\n:::\n\n\n\n\n## Scatterplot for Petal\n\nCompare Petal.Length and Petal.Width\n\n\n\n::: {.cell layout-align=\"center\"}\n\n```{.r .cell-code .hidden}\n#| label: suppfig-iris-scatter-petal\n\niris %>% \n  ggplot(aes(x = Petal.Length, y = Petal.Width, color = Species)) +\n  geom_point() +\n  labs(title = \"Petal Length vs Petal Width\",\n       x = \"Petal Length\",\n       y = \"Petal Width\")\n```\n\n::: {.cell-output-display}\n![](iris_plots_files/figure-ipynb/suppfig-iris-scatter-petal-1.png){fig-align='center'}\n:::\n:::\n\n\n\n## Boxplot for Sepal length\n\n\n\n::: {.cell layout-align=\"center\"}\n\n```{.r .cell-code .hidden}\n#| label: suppfig-iris-boxplot-sepal\n\nboxplot_sepal_length <-\n  iris %>%\n  ggplot(aes(x = Species, y = Sepal.Length, fill = Species)) +\n  geom_boxplot() +\n  labs(title = \"Sepal Length by Species\", x = \"Species\", y = \"Sepal Length\") +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1))\n\nboxplot_sepal_length\n```\n\n::: {.cell-output-display}\n![](iris_plots_files/figure-ipynb/suppfig-iris-boxplot-sepal-1.png){fig-align='center'}\n:::\n:::\n\n\n\n## Boxplot for Petal length\n\n\n\n::: {.cell layout-align=\"center\"}\n\n```{.r .cell-code .hidden}\n#| label: suppfig-iris-boxplot-petal\nboxplot_petal_length <-\n  iris %>%\n  ggplot(aes(x = Species, y = Petal.Length, fill = Species)) +\n  geom_boxplot() +\n  labs(\n    title = \"Petal Length by Species\",\n    x = \"Species\",\n    y = \"Petal Length\"\n  ) +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1))\n\nboxplot_petal_length\n```\n\n::: {.cell-output-display}\n![](iris_plots_files/figure-ipynb/suppfig-iris-boxplot-petal-1.png){fig-align='center'}\n:::\n:::\n\n\n\n## Combine the boxplots\n\n\n\n::: {.cell layout-align=\"center\"}\n\n```{.r .cell-code .hidden}\n#| label: suppfig-iris-boxplot-combined\n\nboxplot_sepal_length + boxplot_petal_length + \n  plot_layout(ncol = 2, guides = \"collect\") + \n  plot_annotation(title = \"Sepal and Petal Length by Species\", tag_levels = \"A\")\n```\n\n::: {.cell-output-display}\n![](iris_plots_files/figure-ipynb/suppfig-iris-boxplot-combined-1.png){fig-align='center'}\n:::\n:::\n",
+    "supporting": [
+      "iris_plots_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": null,
+    "postProcess": true
+  }
+}

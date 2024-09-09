@@ -1,0 +1,91 @@
+---
+title: "iris figures"
+editor_options: 
+  chunk_output_type: console
+---
+
+
+```{r}
+library(tidyverse)
+library(patchwork)
+```
+
+## Scatterplot for Sepal 
+
+Compare Sepal.Length and Sepal.Width
+
+```{r}
+#| label: suppfig-iris-scatter-sepal
+
+iris %>% 
+  ggplot(aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
+  geom_point() +
+  labs(title = "Sepal Length vs Sepal Width",
+       x = "Sepal Length",
+       y = "Sepal Width")
+```
+
+
+## Scatterplot for Petal
+
+Compare Petal.Length and Petal.Width
+
+```{r}
+#| label: suppfig-iris-scatter-petal
+
+iris %>% 
+  ggplot(aes(x = Petal.Length, y = Petal.Width, color = Species)) +
+  geom_point() +
+  labs(title = "Petal Length vs Petal Width",
+       x = "Petal Length",
+       y = "Petal Width")
+```
+
+## Boxplot for Sepal length
+
+```{r}
+#| label: suppfig-iris-boxplot-sepal
+
+boxplot_sepal_length <-
+  iris %>%
+  ggplot(aes(x = Species, y = Sepal.Length, fill = Species)) +
+  geom_boxplot() +
+  labs(title = "Sepal Length by Species", x = "Species", y = "Sepal Length") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+boxplot_sepal_length
+```
+
+## Boxplot for Petal length
+
+```{r}
+#| label: suppfig-iris-boxplot-petal
+boxplot_petal_length <-
+  iris %>%
+  ggplot(aes(x = Species, y = Petal.Length, fill = Species)) +
+  geom_boxplot() +
+  labs(
+    title = "Petal Length by Species",
+    x = "Species",
+    y = "Petal Length"
+  ) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+boxplot_petal_length
+
+```
+
+## Combine the boxplots
+
+```{r}
+#| label: suppfig-iris-boxplot-combined
+
+boxplot_sepal_length + boxplot_petal_length + 
+  plot_layout(ncol = 2, guides = "collect") + 
+  plot_annotation(title = "Sepal and Petal Length by Species", tag_levels = "A")
+
+```
+
+
+
+

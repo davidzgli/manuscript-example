@@ -1,0 +1,29 @@
+---
+title: "issues"
+---
+
+
+
+## Introduction
+
+This is a list of issues that I have encountered while using QMD. I will try to keep this list updated as I encounter more issues. 
+
+
+
+## Render to html
+
+When I try to render the QMD file to html, I get the following error:
+
+- The cross-references for the mtcars-head table are not rendered properly. The cross-references are displayed as raw strings (e.g. @tbl-mtcars-head), not rendered strings (e.g. Table 1).
+- The same issue occurs for the iris-head supplementary table. The cross-references are displayed as raw strings (e.g. @supptbl-iris-head), not rendered strings (e.g. Supplementary Table 1 ).
+- The embdedded code block for creating the mtcars-summary table is not rendered properly. The tables are not displayed in the html file.
+- The same issue occurs for the iris-summary supplementary table. The tables are not displayed in the html file.
+- Layout issue. The texts are aligned to the leftmost side of the page. The texts should be aligned with other elements, such as tables and figures.
+
+## Render to typst
+
+When I try to render the QMD file to typset, I get the following error:
+
+- The cross-references for all the tables, including formal tables and supplementary tables, are not rendered properly. The cross-references are displayed as raw strings (e.g. @tbl-mtcars-head), not rendered strings (e.g. Table 1).
+- For multiple panel figures, the cross-references have to be left one space between the figure refernce and the panel, otherwise the cross-references are not rendered properly. For example, "[@fig-mtcars-combined]A" is not rendered properly, but "[@fig-mtcars-combined] A" is rendered properly. However, it would leave an extra space between the figure reference and the panel in the typset file, e.g. "Figure 1 A", not "Figure 1A".
+

@@ -1,0 +1,73 @@
+---
+title: "mtcars figures"
+editor_options: 
+  chunk_output_type: console
+---
+
+
+```{r}
+library(tidyverse)
+library(patchwork)
+```
+
+## Scatter plot
+
+
+```{r}
+#| label: fig-mtcars-scatter
+
+ggplot(mtcars) + 
+  geom_point(aes(mpg, disp)) 
+
+```
+
+## Boxplot
+
+```{r}
+#| label: fig-mtcars-boxplot
+
+ggplot(mtcars) + 
+  geom_boxplot(aes(gear, disp, group = gear))
+
+```
+
+## Scatter plot with color
+
+```{r}
+#| label: fig-mtcars-scatter-color
+
+scatter_color <-
+ggplot(mtcars) + 
+  geom_point(aes(hp, wt, colour = mpg)) + 
+  theme(legend.position = 'bottom')
+  # ggtitle('Plot 3')
+
+scatter_color
+```
+
+## Bar plot
+
+```{r}
+#| label: fig-mtcars-barplot
+
+bar_plot <- 
+ggplot(mtcars) + 
+  geom_bar(aes(gear)) + 
+  facet_wrap(~cyl) + 
+  theme(legend.position = 'bottom')
+  # ggtitle('Plot 4')
+
+bar_plot
+```
+
+## Combine the plots
+
+```{r}
+#| label: fig-mtcars-combined
+
+scatter_color + bar_plot + plot_layout(ncol = 2) + plot_annotation(title = 'Combined plots', tag_levels = 'A')
+```
+
+
+
+
